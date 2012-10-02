@@ -38,6 +38,8 @@
     NSString *json = [writer stringWithObject:self];
     if (!json)
         NSLog(@"-JSONRepresentation failed. Error is: %@", writer.error);
+    [writer release];
+  
     return json;
 }
 
@@ -52,6 +54,7 @@
     id repr = [parser objectWithString:self];
     if (!repr)
         NSLog(@"-JSONValue failed. Error is: %@", parser.error);
+      [parser release];
     return repr;
 }
 
@@ -66,6 +69,7 @@
     id repr = [parser objectWithData:self];
     if (!repr)
         NSLog(@"-JSONValue failed. Error is: %@", parser.error);
+      [parser release];
     return repr;
 }
 
